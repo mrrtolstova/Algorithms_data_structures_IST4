@@ -8,11 +8,11 @@ typedef std::set<int> Values;
 
 int size;
 
-// Класс решатель головоломки Easy as ABC
+// РљР»Р°СЃСЃ СЂРµС€Р°С‚РµР»СЊ РіРѕР»РѕРІРѕР»РѕРјРєРё Easy as ABC
 class ABCSolver 
 {
 public:
-	// Поиск решения
+	// РџРѕРёСЃРє СЂРµС€РµРЅРёСЏ
 	static Puzzle solve(const Puzzle& puzzle, const Puzzle& info)
 	{
 		Puzzle solution = puzzle;
@@ -21,14 +21,14 @@ public:
 		return Puzzle();
 	}
 
-	// Вспомогательная функция поиска решения
+	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РїРѕРёСЃРєР° СЂРµС€РµРЅРёСЏ
 	static bool solveHelper(Puzzle* solution, const Puzzle& info)
 	{
 		int minRow = -1;
 		int minColumn = -1;
 		Values minValues;
 		while (true) 
-		{// Пока возможно
+		{// РџРѕРєР° РІРѕР·РјРѕР¶РЅРѕ
 			minRow = -1;
 			for (int i = 0; i < size; i++) 
 			{
@@ -36,13 +36,13 @@ public:
 				{
 					if ((*solution)[i][j] != 0)
 						continue;
-					// Для каждой клетки ищем возможные значения
+					// Р”Р»СЏ РєР°Р¶РґРѕР№ РєР»РµС‚РєРё РёС‰РµРј РІРѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 					Values possibleValues = findPossibleValues(i, j, *solution, info);
 					int possibleVaueCount = possibleValues.size();
-					// Если для какой-то клетки подходящего значения не нашлось, то завершаем работу алгоритма (решения нет)
+					// Р•СЃР»Рё РґР»СЏ РєР°РєРѕР№-С‚Рѕ РєР»РµС‚РєРё РїРѕРґС…РѕРґСЏС‰РµРіРѕ Р·РЅР°С‡РµРЅРёСЏ РЅРµ РЅР°С€Р»РѕСЃСЊ, С‚Рѕ Р·Р°РІРµСЂС€Р°РµРј СЂР°Р±РѕС‚Сѓ Р°Р»РіРѕСЂРёС‚РјР° (СЂРµС€РµРЅРёСЏ РЅРµС‚)
 					if (possibleVaueCount == 0)
 						return false;
-					// Если существует единственное подходящее значение, то заполняем клетку соответствующим образом
+					// Р•СЃР»Рё СЃСѓС‰РµСЃС‚РІСѓРµС‚ РµРґРёРЅСЃС‚РІРµРЅРЅРѕРµ РїРѕРґС…РѕРґСЏС‰РµРµ Р·РЅР°С‡РµРЅРёРµ, С‚Рѕ Р·Р°РїРѕР»РЅСЏРµРј РєР»РµС‚РєСѓ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРј РѕР±СЂР°Р·РѕРј
 					if (possibleVaueCount == 1)
 						(*solution)[i][j] = *possibleValues.begin();
 					if (minRow < 0 || possibleVaueCount < minValues.size()) 
@@ -53,46 +53,46 @@ public:
 					}
 				}
 			}
-			// Если все клетки заполнены, то завершаем цикл и возвращаем найденное решение
+			// Р•СЃР»Рё РІСЃРµ РєР»РµС‚РєРё Р·Р°РїРѕР»РЅРµРЅС‹, С‚Рѕ Р·Р°РІРµСЂС€Р°РµРј С†РёРєР» Рё РІРѕР·РІСЂР°С‰Р°РµРј РЅР°Р№РґРµРЅРЅРѕРµ СЂРµС€РµРЅРёРµ
 			if (minRow == -1)
 				return true;
-			// Иначе если ни одну клетку за проход заполнить не удалось, то завершаем цикл
+			// РРЅР°С‡Рµ РµСЃР»Рё РЅРё РѕРґРЅСѓ РєР»РµС‚РєСѓ Р·Р° РїСЂРѕС…РѕРґ Р·Р°РїРѕР»РЅРёС‚СЊ РЅРµ СѓРґР°Р»РѕСЃСЊ, С‚Рѕ Р·Р°РІРµСЂС€Р°РµРј С†РёРєР»
 			else if (1 < minValues.size())
 				break;
 		}
 		for (auto v : minValues) 
-		{// Для клетки с минимальным количеством вариантов
+		{// Р”Р»СЏ РєР»РµС‚РєРё СЃ РјРёРЅРёРјР°Р»СЊРЅС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј РІР°СЂРёР°РЅС‚РѕРІ
 			Puzzle solutionCopy = *solution;
-			// Пробуем ставить каждое значение по порядку и рекурсивно решать
+			// РџСЂРѕР±СѓРµРј СЃС‚Р°РІРёС‚СЊ РєР°Р¶РґРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РїРѕСЂСЏРґРєСѓ Рё СЂРµРєСѓСЂСЃРёРІРЅРѕ СЂРµС€Р°С‚СЊ
 			solutionCopy[minRow][minColumn] = v;
 			if (solveHelper(&solutionCopy, info)) 
-			{// Если решение было найдено, то возвращаем его
+			{// Р•СЃР»Рё СЂРµС€РµРЅРёРµ Р±С‹Р»Рѕ РЅР°Р№РґРµРЅРѕ, С‚Рѕ РІРѕР·РІСЂР°С‰Р°РµРј РµРіРѕ
 				*solution = solutionCopy;
 				return true;
 			}
 		}
-		// Решение не найдено
+		// Р РµС€РµРЅРёРµ РЅРµ РЅР°Р№РґРµРЅРѕ
 		return false;
 	}
 
-	// Получить возможные значения
+	// РџРѕР»СѓС‡РёС‚СЊ РІРѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 	static Values findPossibleValues(int rowIndex, int columnIndex, const Puzzle& puzzle, const Puzzle& info)
 	{
 		Values values;
-		// Исходно возможны все значения
+		// РСЃС…РѕРґРЅРѕ РІРѕР·РјРѕР¶РЅС‹ РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ
 		for (int i = 1; i < size + 1; i++)
 			values.insert(i);
 		Values del;
-		// Ищем исключения анализируя строки
+		// РС‰РµРј РёСЃРєР»СЋС‡РµРЅРёСЏ Р°РЅР°Р»РёР·РёСЂСѓСЏ СЃС‚СЂРѕРєРё
 		del = getRowValues(rowIndex, columnIndex, puzzle, info);
 		for (auto d : del)
 			values.erase(d);
-		// Ищем исключения анализируя столбцы
+		// РС‰РµРј РёСЃРєР»СЋС‡РµРЅРёСЏ Р°РЅР°Р»РёР·РёСЂСѓСЏ СЃС‚РѕР»Р±С†С‹
 		del = getColumnValues(rowIndex, columnIndex, puzzle, info);
 		for (auto d : del)
 			values.erase(d);
 		if (values.size() == 1 && *values.begin() == size)
-		{// Особый случай - если возможное значение только "X"
+		{// РћСЃРѕР±С‹Р№ СЃР»СѓС‡Р°Р№ - РµСЃР»Рё РІРѕР·РјРѕР¶РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ С‚РѕР»СЊРєРѕ "X"
 			if (rowIndex == 0)
 				if (puzzle[rowIndex + 1][columnIndex] && info[0][columnIndex])
 					if (puzzle[rowIndex + 1][columnIndex] != info[0][columnIndex])
@@ -113,12 +113,12 @@ public:
 		return values;
 	}
 
-	// Получить исключаемые значения для строк
+	// РџРѕР»СѓС‡РёС‚СЊ РёСЃРєР»СЋС‡Р°РµРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ СЃС‚СЂРѕРє
 	static Values getRowValues(int rowIndex, int columnIndex, const Puzzle& puzzle, const Puzzle& info)
 	{
 		Values values;
 		if (info[2][rowIndex] && columnIndex < 2)
-		{// Если информационный левый столбец имеет значение
+		{// Р•СЃР»Рё РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Р№ Р»РµРІС‹Р№ СЃС‚РѕР»Р±РµС† РёРјРµРµС‚ Р·РЅР°С‡РµРЅРёРµ
 			if (columnIndex == 0 || puzzle[rowIndex][0] == size)
 			{
 				for (int i = 1; i < size; i++)
@@ -127,7 +127,7 @@ public:
 			}
 		}
 		if (info[3][rowIndex] && columnIndex > (size - 3))
-		{// Если информационный правый столбец имеет значение
+		{// Р•СЃР»Рё РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Р№ РїСЂР°РІС‹Р№ СЃС‚РѕР»Р±РµС† РёРјРµРµС‚ Р·РЅР°С‡РµРЅРёРµ
 			if (columnIndex == (size - 1) || puzzle[rowIndex][size - 1] == size)
 			{
 				for (int i = 1; i < size; i++)
@@ -135,19 +135,19 @@ public:
 				values.erase(info[3][rowIndex]);
 			}
 		}
-		// Если в строке уже есть значения
+		// Р•СЃР»Рё РІ СЃС‚СЂРѕРєРµ СѓР¶Рµ РµСЃС‚СЊ Р·РЅР°С‡РµРЅРёСЏ
 		for (int r = 0; r < size; r++)
 			if (puzzle[rowIndex][r] > 0)
 				values.insert(puzzle[rowIndex][r]);
 		return values;
 	}
 
-	// Получить исключаемые значения для столбцов
+	// РџРѕР»СѓС‡РёС‚СЊ РёСЃРєР»СЋС‡Р°РµРјС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ СЃС‚РѕР»Р±С†РѕРІ
 	static Values getColumnValues(int rowIndex, int columnIndex, const Puzzle& puzzle, const Puzzle& info)
 	{
 		Values values;
 		if (info[0][columnIndex] && rowIndex < 2)
-		{// Если информационная верхняя строка имеет значение
+		{// Р•СЃР»Рё РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅР°СЏ РІРµСЂС…РЅСЏСЏ СЃС‚СЂРѕРєР° РёРјРµРµС‚ Р·РЅР°С‡РµРЅРёРµ
 			if (rowIndex == 0 || puzzle[0][columnIndex] == size)
 			{
 				for (int i = 1; i < size; i++)
@@ -156,7 +156,7 @@ public:
 			}
 		}
 		if (info[1][columnIndex] && rowIndex > (size - 3))
-		{// Если информационная нижняя строка имеет значение
+		{// Р•СЃР»Рё РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅР°СЏ РЅРёР¶РЅСЏСЏ СЃС‚СЂРѕРєР° РёРјРµРµС‚ Р·РЅР°С‡РµРЅРёРµ
 			if (rowIndex == (size - 1) || puzzle[size - 1][columnIndex] == size)
 			{
 				for (int i = 1; i < size; i++)
@@ -164,7 +164,7 @@ public:
 				values.erase(info[1][columnIndex]);
 			}
 		}
-		// Если в столбце уже есть значения
+		// Р•СЃР»Рё РІ СЃС‚РѕР»Р±С†Рµ СѓР¶Рµ РµСЃС‚СЊ Р·РЅР°С‡РµРЅРёСЏ
 		for (int r = 0; r < size; r++)
 			if (puzzle[r][columnIndex] > 0)
 				values.insert(puzzle[r][columnIndex]);
@@ -172,7 +172,7 @@ public:
 	}
 };
 
-// Печатает игровое поле
+// РџРµС‡Р°С‚Р°РµС‚ РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
 void printPuzzle(const Puzzle& puzzle, const Puzzle& info) 
 {
 	std::cout << "  ";
@@ -217,12 +217,12 @@ int main()
 	std::ifstream in("input.txt");
 	std::ofstream out("output.txt");
 
-	// Чтение из файла
+	// Р§С‚РµРЅРёРµ РёР· С„Р°Р№Р»Р°
 	char c;
 	in >> size;
 	Puzzle puzzle(size);
 	for (int i = 0; i < size; i++)
-	{// Чтение доски
+	{// Р§С‚РµРЅРёРµ РґРѕСЃРєРё
 		for (int j = 0; j < size; j++)
 		{
 			in >> c;
@@ -231,7 +231,7 @@ int main()
 	}
 	Puzzle info(4);
 	for (int i = 0; i < 4; i++)
-	{// Чтение боковой информации
+	{// Р§С‚РµРЅРёРµ Р±РѕРєРѕРІРѕР№ РёРЅС„РѕСЂРјР°С†РёРё
 		for (int j = 0; j < size; j++)
 		{
 			in >> c;
@@ -244,9 +244,9 @@ int main()
 
 	Puzzle solution = ABCSolver::solve(puzzle, info);
 	if (!solution.empty())
-	{// Если решение найдено
+	{// Р•СЃР»Рё СЂРµС€РµРЅРёРµ РЅР°Р№РґРµРЅРѕ
 		printPuzzle(solution, info);
-		// Запись в файл
+		// Р—Р°РїРёСЃСЊ РІ С„Р°Р№Р»
 		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size; j++)
