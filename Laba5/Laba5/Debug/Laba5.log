@@ -1,0 +1,5 @@
+﻿  Laba5.cpp
+c:\users\admin\source\repos\laba5\laba5\laba5.cpp(69): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  AssemblyInfo.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Laba5.vcxproj -> C:\Users\Admin\source\repos\Laba5\Debug\Laba5.exe
