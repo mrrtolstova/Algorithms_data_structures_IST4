@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//--- Вывод на экран ---\\ 
+//--- Вывод на экран ---\\  
 void print(int arr[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -18,7 +18,7 @@ int main()
 {
 	int n; // размер массива
 	cout << "Array Size: ";
-	//--- Обработка ввода ---\\\ 
+	//--- Обработка ввода ---\\  
 	while (!(cin >> n) || n < 0)
 	{
 		cout << "Uncorrect size, try again \n";
@@ -27,10 +27,10 @@ int main()
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	}
 	cout << endl; 
-	//--- ---\\\
+	//--- ---\\
 
 	int* arr = new int[n]; // массив размером n
-	//--- Ввод n элементов массив поочереди ---\\ 
+	//--- Ввод n элементов массив поочереди ---\\  
 	for (int i = 0; i < n; i++)
 	{
 		cout << "Array[" << i + 1 << "]: ";
