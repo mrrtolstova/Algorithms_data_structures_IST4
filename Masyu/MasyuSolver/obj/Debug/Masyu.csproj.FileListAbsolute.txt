@@ -1,0 +1,36 @@
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.csprojResolveAssemblyReference.cache
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\MasyuSolver.Properties.Resources.resources
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.GenerateResource.cache
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.CoreCompileInputs.cache
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\MasyuSolver.exe
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\MasyuSolver.pdb
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuForm.resources
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.Boardsettings.NewDialog.resources
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuPanel.resources
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe.config
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe
+C:\Users\Илья\Desktop\Masyu\MasyuSolver\bin\Debug\MasyuSolver.pdb
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe.config
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.pdb
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.csprojResolveAssemblyReference.cache
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuForm.resources
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuPanel.resources
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.Properties.Resources.resources
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.Boardsettings.NewDialog.resources
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.GenerateResource.cache
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.CoreCompileInputs.cache
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.exe
+C:\Users\Илья\Desktop\Лабараторная работа №4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.pdb
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe.config
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.exe
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\bin\Debug\MasyuSolver.pdb
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.csprojAssemblyReference.cache
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuForm.resources
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.MasyuPanel.resources
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.Properties.Resources.resources
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.Boardsettings.NewDialog.resources
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.GenerateResource.cache
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\Masyu.csproj.CoreCompileInputs.cache
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.exe
+C:\Users\Настя\Downloads\Технология программирования\Технология программирования\Королев И.А\Лабораторная работа № 4\Masyu\MasyuSolver\obj\Debug\MasyuSolver.pdb
