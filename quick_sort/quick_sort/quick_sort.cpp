@@ -8,7 +8,7 @@ void print(int arr[], int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		cout << arr[i] << "|";
+		cout << arr[i] << " | ";
 	}
 	cout << endl;
 }
@@ -44,10 +44,10 @@ int main()
 		cout << endl;
 	}
 	//--- ---\\ 
-
+	cout << "Unsort Array: " << endl;
 	print(arr, n); // вывод на экран введенной последовательности
 	quickSort(arr, 0, n - 1); // функция сортировки
-
+	cout << "Sort Array: " << endl;
 	print(arr, n); // вывод на экран результата сортировки
 	system("pause");
 }
