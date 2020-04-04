@@ -71,7 +71,7 @@ void printMatrix(Matrix &m)
 }
 
 //Метод чтения первичных элементов из файла
-void readListFromFile(Matrix &m)
+bool readListFromFile(Matrix &m)
 {
   ifstream startDate("Start.txt");
   string line;
@@ -83,7 +83,18 @@ void readListFromFile(Matrix &m)
       QString str;
       str = str.fromStdString(line);
       QStringList list = str.split(',');
-      *m.take(list[0].toInt() - 1,list[1].toInt() - 1) = list[2].toInt();
+      if(list.size() < 3 || list.size() > 3)
+      {
+          cout << "Problem with the number of items in a row." << endl;
+          return false;
+      }
+      bool ok = true;
+      *m.take(list[0].toInt(&ok) - 1,list[1].toInt(&ok) - 1) = list[2].toInt(&ok);
+      if(!ok)
+      {
+          cout << "Probltm with the data." << endl;
+          return false;
+      }
     }
     startDate.close();
   }
@@ -91,6 +102,7 @@ void readListFromFile(Matrix &m)
   {
     cout << "Problem with file" << endl;
   }
+  return true;
 }
 
 int main(int argc, char *argv[])
@@ -100,7 +112,8 @@ int main(int argc, char *argv[])
     for (int y(0); y < m.size(); y++)
       *m.take(x,y) = 0;
   //printMatrix(m);
-  readListFromFile(m);
+  if(!readListFromFile(m))
+      return 1;
   printMatrix(m);
   for (int x(0); x < SIZE;x++)
   {
@@ -112,4 +125,5 @@ int main(int argc, char *argv[])
   }
   cout<<"------RESULT--------"<<endl;
   printMatrix(m);
+  return 0;
 }
