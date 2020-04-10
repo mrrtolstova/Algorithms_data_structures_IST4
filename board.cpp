@@ -240,6 +240,7 @@ void Board::Input()
         temp_X--;
         std::cout << "Input value of colomn: ";
         get.GetInt(&temp_Y, 1, mSize_of_board);
+
         temp_Y--;
         //Отправляем данные по назначению
         for (int i(0); i < mSize_of_board; i++)
