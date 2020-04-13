@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <utility>
 #include <limits>
@@ -6,7 +6,7 @@
 
 int w, h;
 
-// Вызов функции вернет доступные ходы для конкретного игрового поля
+// Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё РІРµСЂРЅРµС‚ РґРѕСЃС‚СѓРїРЅС‹Рµ С…РѕРґС‹ РґР»СЏ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
 std::vector<std::pair<int, int>> available_moves(bool ** board)
 {
 	std::vector<std::pair<int, int>> moves;
@@ -17,7 +17,7 @@ std::vector<std::pair<int, int>> available_moves(bool ** board)
 	return moves;
 }
 
-// Вызов данной функции вернет true если победил игрок, иначе false
+// Р’С‹Р·РѕРІ РґР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё РІРµСЂРЅРµС‚ true РµСЃР»Рё РїРѕР±РµРґРёР» РёРіСЂРѕРє, РёРЅР°С‡Рµ false
 bool has_won(bool ** board, bool is_maximizing)
 {
 	bool sum = false;
@@ -35,13 +35,13 @@ bool has_won(bool ** board, bool is_maximizing)
 	return false;
 }
 
-// Данная функция возвращает true если один из игроков победил
+// Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РѕРґРёРЅ РёР· РёРіСЂРѕРєРѕРІ РїРѕР±РµРґРёР»
 bool game_is_over(bool ** board, bool is_maximizing)
 {
 	return has_won(board, is_maximizing);
 }
 
-// Данная функция возвращает оценку при достижении "крайнего случая"
+// Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РѕС†РµРЅРєСѓ РїСЂРё РґРѕСЃС‚РёР¶РµРЅРёРё "РєСЂР°Р№РЅРµРіРѕ СЃР»СѓС‡Р°СЏ"
 int evaluate_board(bool ** board, bool is_maximizing)
 {
 	if (has_won(board, is_maximizing))
@@ -49,7 +49,7 @@ int evaluate_board(bool ** board, bool is_maximizing)
 	return -1;
 }
 
-// Создает копию доски
+// РЎРѕР·РґР°РµС‚ РєРѕРїРёСЋ РґРѕСЃРєРё
 bool ** deepcopy(bool ** board)
 {
 	bool ** res = new bool*[w];
@@ -62,7 +62,7 @@ bool ** deepcopy(bool ** board)
 	return res;
 }
 
-// Вызов функции означает выполнение хода игроком на конкретной игровой доске
+// Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё РѕР·РЅР°С‡Р°РµС‚ РІС‹РїРѕР»РЅРµРЅРёРµ С…РѕРґР° РёРіСЂРѕРєРѕРј РЅР° РєРѕРЅРєСЂРµС‚РЅРѕР№ РёРіСЂРѕРІРѕР№ РґРѕСЃРєРµ
 bool select_space(bool ** board, std::pair<int, int> move)
 {
 	if (move.first >= w || move.second >= h)
@@ -79,23 +79,23 @@ bool select_space(bool ** board, std::pair<int, int> move)
 
 std::pair<int, std::pair<int, int>> minimax(bool ** input_board, int alpha, int beta, bool is_maximizing)
 {
-	// Крайний случай рекурсии - игра окончена
+	// РљСЂР°Р№РЅРёР№ СЃР»СѓС‡Р°Р№ СЂРµРєСѓСЂСЃРёРё - РёРіСЂР° РѕРєРѕРЅС‡РµРЅР°
 	if (game_is_over(input_board, is_maximizing))
 		return std::make_pair(evaluate_board(input_board, is_maximizing), std::pair<int,int>());
-	// Инициализируем значения best_value и best_move
+	// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј Р·РЅР°С‡РµРЅРёСЏ best_value Рё best_move
 	std::pair<int, int> best_move;
 	int best_value;
-	// Случай, когда ход максимизирующего игрока
+	// РЎР»СѓС‡Р°Р№, РєРѕРіРґР° С…РѕРґ РјР°РєСЃРёРјРёР·РёСЂСѓСЋС‰РµРіРѕ РёРіСЂРѕРєР°
 	if (is_maximizing)
 		best_value = alpha;
-	// Случай, когда ход минимизирующего компьютера
+	// РЎР»СѓС‡Р°Р№, РєРѕРіРґР° С…РѕРґ РјРёРЅРёРјРёР·РёСЂСѓСЋС‰РµРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР°
 	else
 		best_value = beta;
-	/* Пройдём циклом по всем возможным ходам, для того чтобы выбрать наилучший
-	путем рекурсивных вызовов функции minimax с копией игровой доски.
-	Как только рекурсия достигнет "крайнего" случая, она вернет значения из [1, -1]
-	для функции, которая ее вызвала, до тех пор, пока самая "верхняя" функция в стеке
-	вызовов (minimax с текущей игровой доской) не получит свое значение */
+	/* РџСЂРѕР№РґС‘Рј С†РёРєР»РѕРј РїРѕ РІСЃРµРј РІРѕР·РјРѕР¶РЅС‹Рј С…РѕРґР°Рј, РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РІС‹Р±СЂР°С‚СЊ РЅР°РёР»СѓС‡С€РёР№
+	РїСѓС‚РµРј СЂРµРєСѓСЂСЃРёРІРЅС‹С… РІС‹Р·РѕРІРѕРІ С„СѓРЅРєС†РёРё minimax СЃ РєРѕРїРёРµР№ РёРіСЂРѕРІРѕР№ РґРѕСЃРєРё.
+	РљР°Рє С‚РѕР»СЊРєРѕ СЂРµРєСѓСЂСЃРёСЏ РґРѕСЃС‚РёРіРЅРµС‚ "РєСЂР°Р№РЅРµРіРѕ" СЃР»СѓС‡Р°СЏ, РѕРЅР° РІРµСЂРЅРµС‚ Р·РЅР°С‡РµРЅРёСЏ РёР· [1, -1]
+	РґР»СЏ С„СѓРЅРєС†РёРё, РєРѕС‚РѕСЂР°СЏ РµРµ РІС‹Р·РІР°Р»Р°, РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° СЃР°РјР°СЏ "РІРµСЂС…РЅСЏСЏ" С„СѓРЅРєС†РёСЏ РІ СЃС‚РµРєРµ
+	РІС‹Р·РѕРІРѕРІ (minimax СЃ С‚РµРєСѓС‰РµР№ РёРіСЂРѕРІРѕР№ РґРѕСЃРєРѕР№) РЅРµ РїРѕР»СѓС‡РёС‚ СЃРІРѕРµ Р·РЅР°С‡РµРЅРёРµ */
 	for (std::pair<int, int> move : available_moves(input_board))
 	{
 		bool ** new_board = deepcopy(input_board);
@@ -134,7 +134,7 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 
-	std::cout << "Размеры поля - ";
+	std::cout << "Р Р°Р·РјРµСЂС‹ РїРѕР»СЏ - ";
 	std::cin >> h >> w;
 
 	int start = clock();
@@ -146,7 +146,7 @@ int main()
 			board[i][j] = true;
 	}
 	std::pair<int, std::pair<int, int>> res = minimax(board, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), true);
-	std::cout << "оценка " << res.first << " ход " << res.second.second << " " << res.second.first << " время " << clock() - start;
+	std::cout << "РѕС†РµРЅРєР° " << res.first << " С…РѕРґ " << res.second.second << " " << res.second.first << " РІСЂРµРјСЏ " << clock() - start;
 
 	for (int i = 0; i < w; i++)
 		delete board[i];
