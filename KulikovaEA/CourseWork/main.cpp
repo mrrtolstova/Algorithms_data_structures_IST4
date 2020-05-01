@@ -1,7 +1,8 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <utility>
 #include <limits>
+#include <ctime>
 
 int w, h;
 
@@ -76,7 +77,7 @@ bool select_space(bool ** board, std::pair<int, int> move)
 	return false;
 }
 
-std::pair<int, std::pair<int, int>> minimax(bool ** input_board, bool is_maximizing)
+std::pair<int, std::pair<int, int>> minimax(bool ** input_board, int alpha, int beta, bool is_maximizing)
 {
 	// Крайний случай рекурсии - игра окончена
 	if (game_is_over(input_board, is_maximizing))
@@ -86,10 +87,10 @@ std::pair<int, std::pair<int, int>> minimax(bool ** input_board, bool is_maximiz
 	int best_value;
 	// Случай, когда ход максимизирующего игрока
 	if (is_maximizing)
-		best_value = std::numeric_limits<int>::min();
+		best_value = alpha;
 	// Случай, когда ход минимизирующего компьютера
 	else
-		best_value = std::numeric_limits<int>::max();
+		best_value = beta;
 	/* Пройдём циклом по всем возможным ходам, для того чтобы выбрать наилучший
 	путем рекурсивных вызовов функции minimax с копией игровой доски.
 	Как только рекурсия достигнет "крайнего" случая, она вернет значения из [1, -1]
@@ -99,18 +100,29 @@ std::pair<int, std::pair<int, int>> minimax(bool ** input_board, bool is_maximiz
 	{
 		bool ** new_board = deepcopy(input_board);
 		select_space(new_board, move);
-		int hypothetical_value = minimax(new_board, !is_maximizing).first;
-		if (is_maximizing && hypothetical_value > best_value)
+		int hypothetical_value;
+		if (is_maximizing)
 		{
-			best_value = hypothetical_value;
-			best_move = move;
+			hypothetical_value = minimax(new_board, best_value, beta, !is_maximizing).first;
+			if (hypothetical_value > best_value)
+			{
+				best_value = hypothetical_value;
+				best_move = move;
+			}
+			if (best_value >= beta)
+				return std::make_pair(best_value, best_move);
 		}
-		if (!is_maximizing && hypothetical_value < best_value)
+		else
 		{
-			best_value = hypothetical_value;
-			best_move = move;
+			hypothetical_value = minimax(new_board, alpha, best_value, !is_maximizing).first;
+			if (hypothetical_value < best_value)
+			{
+				best_value = hypothetical_value;
+				best_move = move;
+			}
+			if (best_value <= alpha)
+				return std::make_pair(best_value, best_move);
 		}
-
 		for (int i = 0; i < w; i++)
 			delete new_board[i];
 		delete new_board;
@@ -125,6 +137,7 @@ int main()
 	std::cout << "Размеры поля - ";
 	std::cin >> h >> w;
 
+	int start = clock();
 	bool ** board = new bool*[w];
 	for (int i = 0; i < w; i++)
 	{
@@ -132,8 +145,8 @@ int main()
 		for (int j = 0; j < h; j++)
 			board[i][j] = true;
 	}
-	std::pair<int, std::pair<int, int>> res = minimax(board, true);
-	std::cout << "оценка " << res.first << " ход " << res.second.second << " " << res.second.first;
+	std::pair<int, std::pair<int, int>> res = minimax(board, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), true);
+	std::cout << "оценка " << res.first << " ход " << res.second.second << " " << res.second.first << " время " << clock() - start;
 
 	for (int i = 0; i < w; i++)
 		delete board[i];
