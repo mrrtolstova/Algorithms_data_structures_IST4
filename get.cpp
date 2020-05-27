@@ -22,6 +22,7 @@ void Get::GetInt(int *tmpVal)
         *tmpVal = - 1;
     }
     system("cls");
+    cout << "Incorect, please repeat input: ";
 }
 
 void Get::GetInt(int *tmpVal, int min, int max)
@@ -49,7 +50,6 @@ void Get::GetInt(int *tmpVal, int min, int max)
         system("cls");
         cout << "Incorect, please repeat input: ";
     } while (*tmpVal < min || *tmpVal > max);
-    system("cls");
     system("cls");
 }
 

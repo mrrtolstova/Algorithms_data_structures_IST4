@@ -90,7 +90,6 @@ void Board::PrintBoard()
                }
            std::cout << " " << std::endl;
    }
-   std::cout << std::endl << std::endl;
 }
 
 //Метод очистки
@@ -236,14 +235,12 @@ void Board::Input()
         //Принимаем данные
         std::cout << "Input value of cell: ";
         get.GetIntMin(&temp_val, 1);
-        system("cls");
         std::cout << "Input value of raw: ";
         get.GetInt(&temp_X, 1, mSize_of_board);
-        system("cls");
         temp_X--;
         std::cout << "Input value of colomn: ";
         get.GetInt(&temp_Y, 1, mSize_of_board);
-        system("cls");
+
         temp_Y--;
         //Отправляем данные по назначению
         for (int i(0); i < mSize_of_board; i++)
