@@ -1,0 +1,4 @@
+﻿  Laba4.cpp
+d:\универ\тп\lr_4_tolstova_mg\laba4\laba4\laba4.cpp(21): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  AssemblyInfo.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Laba4.vcxproj -> D:\УНИВЕР\ТП\LR_4_Tolstova_MG\Laba4\Debug\Laba4.exe
