@@ -1,0 +1,3 @@
+﻿  laba4_Chebotova.cpp
+D:\Учеба 2 курс 2 семестр\ТП\laba4_Chebotova\laba4_Chebotova\laba4_Chebotova.cpp(92,12): warning C4244:  аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  laba4_Chebotova.vcxproj -> D:\Учеба 2 курс 2 семестр\ТП\laba4_Chebotova\Debug\laba4_Chebotova.exe
